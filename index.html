@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.baidu.com/2017/10/25/Hello/">
+    <link itemprop="mainEntityOfPage" href="http://www.baidu.com/2017/10/25/数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alex">
@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/25/Hello/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2017/10/25/数组/" itemprop="url">数组去重</a></h1>
         
 
         <div class="post-meta">
@@ -300,8 +300,7 @@
       
         
           
-            <hr>
-<h2 id="title-First-Night"><a href="#title-First-Night" class="headerlink" title=" title: First Night"></a> title: First Night</h2><p> 1.利用NSDictionary的AllKeys（AllValues）方法<br> 可以将NSArray中的元素存入一个字典，然后利用AllKeys或者AllValues取得字典的所有键或值，这些键或值都是去重的。<br> 示例代码：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">NSArray *arr = @[@111,@222,@111];</div><div class="line">NSMutableDictionary *dict = [NSMutableDictionary dictionary];</div><div class="line">for (NSNumber *number in arr) &#123;</div><div class="line">[dict setObject:number forKey:number];</div><div class="line">&#125;</div><div class="line">NSLog(@&quot;%@&quot;,[dict allValues]);</div><div class="line">输出结果为：</div><div class="line">2013-05-21 12:03:49.449 test1[4377:c07] (</div><div class="line">111,</div><div class="line">222</div><div class="line">)</div></pre></td></tr></table></figure></p>
+            <p> 1.利用NSDictionary的AllKeys（AllValues）方法<br> 可以将NSArray中的元素存入一个字典，然后利用AllKeys或者AllValues取得字典的所有键或值，这些键或值都是去重的。<br> 示例代码：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">NSArray *arr = @[@111,@222,@111];</div><div class="line">NSMutableDictionary *dict = [NSMutableDictionary dictionary];</div><div class="line">for (NSNumber *number in arr) &#123;</div><div class="line">[dict setObject:number forKey:number];</div><div class="line">&#125;</div><div class="line">NSLog(@&quot;%@&quot;,[dict allValues]);</div><div class="line">输出结果为：</div><div class="line">2013-05-21 12:03:49.449 test1[4377:c07] (</div><div class="line">111,</div><div class="line">222</div><div class="line">)</div></pre></td></tr></table></figure></p>
 <p> 2.利用NSSet的AllObjects方法<br> 这种方法更快，利用NSSet不会添加重复元素的特性。不过去重的数组没有进行排序，如果需要排序，可以使用NSSortDescriptor类。<br> 示例代码：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">NSArray *arr = @[@111,@222,@111];</div><div class="line">NSSet *set = [NSSet setWithArray:arr];</div><div class="line">NSLog(@&quot;%@&quot;,[set allObjects]);</div><div class="line">输出结果为：</div><div class="line">2013-05-21 12:06:26.508 test1[4547:c07] (</div><div class="line">111,</div><div class="line">222</div><div class="line">)</div></pre></td></tr></table></figure></p>
 
           
